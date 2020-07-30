@@ -1,5 +1,6 @@
 package com.salereport.observer;
 
+import com.salereport.config.ConfigProperties;
 import com.salereport.file.ReaderFileService;
 import com.salereport.file.WriteFileService;
 import lombok.AllArgsConstructor;
@@ -22,11 +23,12 @@ public class FileObserver {
 
     private ReaderFileService readerFileService;
     private WriteFileService writeFileService;
+    private ConfigProperties configProperties;
 
     public void startObserver() {
         try {
             WatchService watcher = FileSystems.getDefault().newWatchService();
-            Path logDir = Paths.get("/home/felipe/data/in");
+            Path logDir = Paths.get(configProperties.getPathToRead());
             logDir.register(watcher, ENTRY_CREATE);
 
             WatchKey key;

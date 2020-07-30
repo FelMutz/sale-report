@@ -2,8 +2,8 @@ package com.salereport.services.Implementations;
 
 import com.salereport.enums.OperationIndicatorEnum;
 import com.salereport.mapper.SalesmanMapper;
-import com.salereport.model.SaleMode;
-import com.salereport.model.SalesmanMode;
+import com.salereport.model.SaleModel;
+import com.salereport.model.SalesmanModel;
 import com.salereport.repository.SaleRepository;
 import com.salereport.repository.SalesmanRepository;
 import com.salereport.services.ServiceFacade;
@@ -37,11 +37,11 @@ public class SalesmanService implements ServiceFacade {
                 .size();
     }
 
-    public List<SalesmanMode> getTheWorstSalesmanOnMemory() {
+    public List<SalesmanModel> getTheWorstSalesmanOnMemory() {
         Map<String,Double> valueSaleBySalesman = saleRepository.getSales()
                 .stream()
-                .collect(Collectors.groupingBy(SaleMode::getSalesmanName,
-                        Collectors.summingDouble(SaleMode::getSalePrice)));
+                .collect(Collectors.groupingBy(SaleModel::getSalesmanName,
+                        Collectors.summingDouble(SaleModel::getSalePrice)));
 
         Double lowestTotalSale = valueSaleBySalesman.values().stream().sorted().findFirst().orElse(0d);
 

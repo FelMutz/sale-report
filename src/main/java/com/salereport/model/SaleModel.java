@@ -11,7 +11,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SaleMode {
+public class SaleModel {
     private Integer id;
     private String salesmanName;
     private List<ItemModel> items;

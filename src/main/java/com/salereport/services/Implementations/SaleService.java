@@ -2,7 +2,7 @@ package com.salereport.services.Implementations;
 
 import com.salereport.enums.OperationIndicatorEnum;
 import com.salereport.mapper.SaleMapper;
-import com.salereport.model.SaleMode;
+import com.salereport.model.SaleModel;
 import com.salereport.repository.SaleRepository;
 import com.salereport.services.ServiceFacade;
 import org.springframework.stereotype.Service;
@@ -29,8 +29,8 @@ public class SaleService implements ServiceFacade {
     public Integer getIdMoreExpencifySale() {
         return saleRepository.getSales()
                 .stream()
-                .max(Comparator.comparing(SaleMode::getSalePrice))
-                .map(SaleMode::getId)
+                .max(Comparator.comparing(SaleModel::getSalePrice))
+                .map(SaleModel::getId)
                 .orElse(null);
     }
 }

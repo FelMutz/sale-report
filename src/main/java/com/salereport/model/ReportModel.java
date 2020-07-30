@@ -18,5 +18,5 @@ public class ReportModel {
     private Integer amountClientOnMemory;
     private Integer amountSalesmanOnMemory;
     private Integer SaleMoreExpensifyOnMemory;
-    private List<SalesmanMode> worstSalesmanOnMemory;
+    private List<SalesmanModel> worstSalesmanOnMemory;
 }

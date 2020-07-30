@@ -1,15 +1,15 @@
 package com.salereport.mapper;
 
 import com.salereport.model.ItemModel;
-import com.salereport.model.SaleMode;
+import com.salereport.model.SaleModel;
 
 import java.util.List;
 
 public class SaleMapper {
-    public static SaleMode mapToModel(List<String> stringList) {
+    public static SaleModel mapToModel(List<String> stringList) {
         List<ItemModel> items = ItemMapper.mapToListModel(stringList.get(2));
 
-        return SaleMode.builder()
+        return SaleModel.builder()
                 .id(Integer.parseInt(stringList.get(1)))
                 .items(items)
                 .salesmanName(stringList.get(3))

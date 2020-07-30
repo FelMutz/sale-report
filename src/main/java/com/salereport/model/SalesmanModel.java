@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SalesmanMode {
+public class SalesmanModel {
     private String cpf;
     private String name;
     private Double salary;

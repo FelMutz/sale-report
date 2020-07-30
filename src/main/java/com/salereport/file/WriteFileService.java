@@ -1,5 +1,6 @@
 package com.salereport.file;
 
+import com.salereport.config.ConfigProperties;
 import com.salereport.enums.OperationIndicatorEnum;
 import com.salereport.mapper.FileMapper;
 import com.salereport.model.ReportModel;
@@ -31,6 +32,7 @@ public class WriteFileService {
     private SaleService saleService;
     private SalesmanService salesmanService;
     private ReaderFileService readerFileService;
+    private ConfigProperties configProperties;
 
     public void makeReport(List<File> fileList, String fileName) {
            List<String> lineFile = readerFileService.readAllLine(fileList);
@@ -53,7 +55,7 @@ public class WriteFileService {
     }
 
     private void writeReportOnFile(ReportModel reportModel) {
-        Path logDir = Paths.get("/home/felipe/data/on/SaleReport.dat");
+        Path logDir = Paths.get(configProperties.getPathToWrite());
         try (BufferedWriter writer = Files.newBufferedWriter(logDir)) {
             writer.write(reportModel.toString());
             log.info("Relatorio realizado.");

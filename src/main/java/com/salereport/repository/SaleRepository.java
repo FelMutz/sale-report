@@ -1,6 +1,6 @@
 package com.salereport.repository;
 
-import com.salereport.model.SaleMode;
+import com.salereport.model.SaleModel;
 import lombok.Getter;
 
 import java.util.HashSet;
@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class SaleRepository {
     @Getter
-    private Set<SaleMode> sales;
+    private Set<SaleModel> sales;
     @Getter
     private static final SaleRepository saleRepository = new SaleRepository();
 
